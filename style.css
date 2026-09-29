@@ -123,8 +123,93 @@ form label, form p{
     border-radius: 5px;
     transition: 1s all;
     cursor: pointer;
+    animation: rotate 3s linear infinite;
  }
  .enviar:hover{
     background-color: rgb(255, 255, 255);
     transform: scale(1.2);
  }
+@keyframes rotate {
+        0%{
+            transform: rotate(0deg);
+            border-style: solid;
+            border-color: rgb(255, 0, 0);
+        }
+        25%{
+            transform: rotate(5deg);
+            border-style: solid;
+            border-color: rgb(255, 0, 0);
+
+        }
+        50%{
+            transform: rotate(10deg);
+            border-style: solid;
+            border-color: rgb(255, 0, 0);
+        }
+        100%{
+            transform: rotate(20deg);
+            border-style: solid;
+            border-color: rgb(255, 0, 0);
+
+        }
+}
+.particle-deconstruct-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  background: #ffffff;
+}
+
+.particle-deconstruct-element {
+  width: 150px;
+  height: 100px;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.particle-deconstruct-element h2 {
+  color: #0ff;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+.particle-deconstruct-element::before,
+.particle-deconstruct-element::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-radial-gradient(
+    circle at center, 
+    #0ff 1px, 
+    transparent 2px, 
+    transparent 50px 
+  );
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.particle-deconstruct-element:hover h2 {
+  transform: scale(1.5) rotate(360deg);
+  opacity: 0;
+}
+
+.particle-deconstruct-element:hover::before {
+  transform: scale(2) rotate(45deg);
+  opacity: 0.3;
+}
+
+.particle-deconstruct-element:hover::after {
+  transform: scale(2) rotate(-45deg);
+  opacity: 0.3;
+}
